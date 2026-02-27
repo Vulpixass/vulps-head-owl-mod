@@ -6,9 +6,9 @@ import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 
 public class ClientCommands {
-    public static OwlTypesEnum FoxType = OwlTypesEnum.REGULAR;
+    public static OwlTypesEnum OwlType = OwlTypesEnum.REGULAR;
     public static void register(CommandDispatcher<FabricClientCommandSource> dispatcher) {
-        dispatcher.register(ClientCommandManager.literal("foxAppearance")
+        dispatcher.register(ClientCommandManager.literal("owlAppearance")
                 .then(ClientCommandManager.argument("type", StringArgumentType.word())
                         .suggests(((context, builder) -> {
                             builder.suggest("regular");
@@ -17,7 +17,7 @@ public class ClientCommands {
                         .executes(ctx -> {
                             String type = StringArgumentType.getString(ctx, "type");
                             switch (type) {
-                                case "regular": FoxType = OwlTypesEnum.REGULAR; return 1;
+                                case "regular": OwlType = OwlTypesEnum.REGULAR; return 1;
                             }
                             return 0;
                         })));

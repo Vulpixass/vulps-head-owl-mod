@@ -17,7 +17,7 @@ import net.minecraft.util.Identifier;
 import net.vulpixass.headowl.client.model.owl;
 import net.vulpixass.headowl.command.client.OwlTypesEnum;
 
-import static net.vulpixass.headowl.command.client.ClientCommands.FoxType;
+import static net.vulpixass.headowl.command.client.ClientCommands.OwlType;
 
 public class OwlHatFeatureRenderer extends FeatureRenderer<PlayerEntityRenderState, PlayerEntityModel> {
     private long nextTwitchTime = 0;
@@ -44,7 +44,7 @@ public class OwlHatFeatureRenderer extends FeatureRenderer<PlayerEntityRenderSta
         PlayerEntity me = client.player;
         owl owl = this.owlModel;
         PlayerEntity target = (PlayerEntity) client.world.getEntityById(state.id);
-        switch (FoxType) {
+        switch (OwlType) {
             case OwlTypesEnum.REGULAR: OWL_TEXTURE = Identifier.of("headowl", "textures/entity/regular_owl.png"); break;
         }
         if (me == null) return;
